@@ -1,6 +1,0 @@
-[submodule "audiveris"]
-	path = audiveris
-	url = https://github.com/Audiveris/audiveris.git
-[submodule "tessdata_best"]
-	path = tessdata_best
-	url = https://github.com/tesseract-ocr/tessdata_best.git
