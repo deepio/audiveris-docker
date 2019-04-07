@@ -1,0 +1,11 @@
+version: "3.2"
+services:
+  audiveris_omr:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    volumes: 
+      - "./to_do:/to_do"
+      - "./finished:/finished"
+    image: d33pi0/audiveris:latest
+    command: bash -c "/Audiveris/bin/Audiveris -batch -export -save -output /finished/ /to_do/*"

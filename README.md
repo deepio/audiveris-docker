@@ -1,6 +1,7 @@
 # audiveris-docker
 This docker container simplifies the recognition of mass image files of musical scores using the open-source software Audiveris.
 
-## Contains
-- Audiveris submodule: `github.com/Audiveris/audiveris.git`
-- Tesseract submodule: `github.com/Tesseract-ocr/tessdata_best.git`
+# Usage
+- Place all images of sheet music in the `to_do` directory
+- `docker-compose up`
+- Audiveris will output all the data into the `finished` directory
