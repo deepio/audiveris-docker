@@ -24,6 +24,7 @@ RUN set -e \
   && git clone https://github.com/Audiveris/audiveris.git /opt/audiveris
 
 COPY ./tessdata /opt/tessdata
+COPY ./main.py /opt/audiveris_controller.py
 
 # Install gradle -> website recommended method
 RUN ["/bin/bash", "-c", "source /root/.sdkman/bin/sdkman-init.sh && cd /opt/audiveris && sdk install gradle"]
