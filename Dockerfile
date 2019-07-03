@@ -1,5 +1,5 @@
 FROM ubuntu:latest
-ENV TESSDATA_PREFIX=/opt/tessdata
+ENV TESSDATA_PREFIX=/opt/tessdata4
 
 RUN set -e \
   && apt-get update \
@@ -8,7 +8,6 @@ RUN set -e \
     git \
     openjdk-8-jdk \
     tesseract-ocr-eng \
-    # not part of the audiveris documentation
     libtesseract-dev \
     # SDKMAN dependencies
     curl \
@@ -21,9 +20,10 @@ RUN set -e \
   && /opt/sdkman-install.sh \
   && chmod +x /root/.sdkman/bin/sdkman-init.sh \
   # Grab audiveris
-  && git clone https://github.com/Audiveris/audiveris.git /opt/audiveris
+  && git clone -b tess4 https://github.com/Audiveris/audiveris.git /opt/audiveris
 
 COPY ./tessdata /opt/tessdata
+COPY ./tessdata4 /opt/tessdata4
 COPY ./main.py /opt/audiveris_controller.py
 
 # Install gradle -> website recommended method
