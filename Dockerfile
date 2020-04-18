@@ -20,10 +20,10 @@ RUN set -e \
   && /opt/sdkman-install.sh \
   && chmod +x /root/.sdkman/bin/sdkman-init.sh \
   # Grab audiveris
-  && git clone -b tess4 https://github.com/Audiveris/audiveris.git /opt/audiveris
+  # && git clone -b tess4 https://github.com/Audiveris/audiveris.git /opt/audiveris
+  && git clone https://github.com/Audiveris/audiveris.git /opt/audiveris
 
 COPY ./tessdata /opt/tessdata
-COPY ./tessdata4 /opt/tessdata4
 COPY ./main.py /opt/audiveris_controller.py
 
 # Install gradle -> website recommended method
