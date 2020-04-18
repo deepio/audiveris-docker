@@ -1,5 +1,5 @@
 FROM ubuntu:latest
-ENV TESSDATA_PREFIX=/opt/tessdata4
+ENV TESSDATA_PREFIX=/opt/tessdata
 
 RUN set -e \
   && apt-get update \
