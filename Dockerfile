@@ -1,6 +1,6 @@
 # FROM ubuntu:latest
 FROM ubuntu:20.04
-ENV TESSDATA_PREFIX=/opt/tessdata
+ENV TESSDATA_PREFIX=/usr/share/tesseract-ocr/4.00/tessdata
 
 # Required in 20.04 because of tzdata asking for the Geographic area
 # when installing modules.
@@ -28,7 +28,6 @@ RUN set -e \
   # && git clone -b tess4 https://github.com/Audiveris/audiveris.git /opt/audiveris
   && git clone https://github.com/Audiveris/audiveris.git /opt/audiveris
 
-COPY ./tessdata /opt/tessdata
 COPY ./main.py /opt/audiveris_controller.py
 
 # Install gradle -> website recommended method
