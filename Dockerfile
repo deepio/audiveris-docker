@@ -2,6 +2,10 @@
 FROM ubuntu:20.04
 ENV TESSDATA_PREFIX=/opt/tessdata
 
+# Required in 20.04 because of tzdata asking for the Geographic area
+# when installing modules.
+ARG DEBIAN_FRONTEND=noninteractive
+
 RUN set -e \
   && apt-get update \
   && apt-get install -yqq \
