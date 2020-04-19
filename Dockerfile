@@ -1,4 +1,5 @@
-FROM ubuntu:latest
+# FROM ubuntu:latest
+FROM ubuntu:20.04
 ENV TESSDATA_PREFIX=/opt/tessdata
 
 RUN set -e \
