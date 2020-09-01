@@ -8,4 +8,12 @@ services:
       - "./to_do:/to_do"
       - "./finished:/finished"
     image: d33pi0/audiveris:latest
-    command: bash -c "/Audiveris/bin/Audiveris -batch -export -save -output /finished/ /to_do/*"
+    # command: bash -c "/Audiveris/bin/Audiveris -batch -export -save -output /finished/ /to_do/*"
+    command: bash -c "tail -f /dev/null"
+    # -step : Define a specific target step
+    # [ LOAD | BINARY | SCALE | GRID | HEADERS | STEM_SEEDS | BEAMS | LEDGERS | HEADS | STEMS | REDUCTION | CUE_BEAMS | TEXTS | MEASURES | CHORDS | CURVES | SYMBOLS | LINKS | RHYTHMS | PAGE]
+
+    # /Audiveris/bin/Audiveris -batch -export -save -step LOAD BINARY SCALE GRID HEADERS STEM_SEEDS BEAMS LEDGERS HEADS STEMS REDUCTION CUE_BEAMS TEXTS MEASURES CHORDS CURVES SYMBOLS LINKS RHYTHMS PAGE -output /finished/ /to_do/*
+
+gs -dBATCH -dNOPAUSE -sDEVICE=pnggray -r256 -sOutputFile=page%04d.png 1.pdf
+/Audiveris/bin/Audiveris -batch -export -save -output ./page0001.png ./audiveris
